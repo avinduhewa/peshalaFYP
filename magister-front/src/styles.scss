@@ -1,0 +1,80 @@
+@at-root {
+    @-ms-viewport { width: device-width; } // stylelint-disable-line at-rule-no-vendor-prefix
+  }
+  
+  html {
+    box-sizing: border-box;
+    -ms-overflow-style: scrollbar;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  
+  // Base functions
+  @import "assets/scss/utilities/functions";
+  
+  // Core base colors, fonts, and variables
+  @import "assets/scss/base/color-palatte";
+  @import "assets/scss/base/fonts";
+  @import "assets/scss/base/variables";
+  @import "assets/scss/base/app-variables";
+  
+  // Core Mixins and Extends
+  @import "assets/scss/utilities/twbs_mixins/breakpoints";
+  @import "assets/scss/utilities/twbs_mixins/grid-framework";
+  @import "assets/scss/utilities/twbs_mixins/grid";
+  @import "assets/scss/utilities/twbs_mixins";
+  @import "assets/scss/utilities/mixins";
+  
+  // Core layout
+  @import "assets/scss/base/grid";
+  @import "assets/scss/utilities/utilities";
+  
+  // Core styles
+  @import "assets/scss/base/root";
+  @import "assets/scss/base/reboot";
+  @import "assets/scss/base/type";
+  @import "assets/scss/base/transitions";
+  @import "assets/scss/utilities/extends";
+  
+  // UI
+  @import "assets/scss/ui/images";
+  @import "assets/scss/ui/code";
+  @import "assets/scss/ui/tables";
+  @import "assets/scss/ui/forms";
+  @import "assets/scss/ui/buttons";
+  @import "assets/scss/ui/dropdown";
+  @import "assets/scss/ui/button-group";
+  @import "assets/scss/ui/input-group";
+  @import "assets/scss/ui/custom-forms";
+  @import "assets/scss/ui/nav";
+  @import "assets/scss/ui/navbar";
+  @import "assets/scss/ui/card";
+  @import "assets/scss/ui/breadcrumb";
+  @import "assets/scss/ui/pagination";
+  @import "assets/scss/ui/badge";
+  @import "assets/scss/ui/jumbotron";
+  @import "assets/scss/ui/alert";
+  @import "assets/scss/ui/progress";
+  @import "assets/scss/ui/media";
+  @import "assets/scss/ui/list-group";
+  @import "assets/scss/ui/close";
+  @import "assets/scss/ui/modal";
+  @import "assets/scss/ui/tooltip";
+  @import "assets/scss/ui/popover";
+  @import "assets/scss/ui/carousel";
+  @import "assets/scss/ui/print";
+  
+  // Components
+  @import "assets/scss/components/feature-slider";
+  @import "assets/scss/components/login-form";
+  @import "assets/scss/components/onboarding-container";
+  @import "assets/scss/components/header";
+  @import "assets/scss/components/app-switcher";
+  @import "assets/scss/components/user-switcher";
+  @import "assets/scss/components/sidebar-nav";
+
+  @import "~@ng-select/ng-select/themes/default.theme.css";

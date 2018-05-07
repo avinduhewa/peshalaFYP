@@ -1,0 +1,40 @@
+<form class="form login-form" novalidate [formGroup]="form" (submit)="submit(form.value)" >
+  <div class="container form-container">
+
+      <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+              <ng-select [items]="boardNames"
+              bindLabel="name"
+              bindValue="id"
+              formControlName="boardName"
+              >
+              </ng-select>
+            </div>
+        </div>
+        <div class="col-md-4">
+                <div class="form-group">
+                  <ng-select [items]="taskNames"
+                  bindLabel="name"
+                  bindValue="id"
+                  formControlName="boardName"
+                  >
+                  </ng-select>
+                </div>
+            </div>
+        <div class="col-md-4">
+            <input type="number" class="form-control" id="usr" placeholder="time" formControlName="timeSpend">
+        </div>
+      </div>
+      
+      <div class="row">
+          <div class="col-md-12">
+              <!-- <input type="date" class="form-control" id="usr" placeholder="date" formControlName="completedDate"> -->
+              <!-- <angular-date-range-picker formControlName="completedDate" ></angular-date-range-picker> -->
+          </div>
+      </div>
+  </div>
+  <div class="container">
+      <input class="btn btn-primary" type="submit" name="" id="">
+  </div>
+</form>

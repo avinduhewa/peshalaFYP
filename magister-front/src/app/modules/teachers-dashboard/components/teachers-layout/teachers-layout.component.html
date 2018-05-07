@@ -1,0 +1,139 @@
+<!-- Sidebar navigation start -->
+<section class="sidebar-nav">
+    
+      <!-- Main navigation start -->
+      <div class="main-nav">
+    
+        <!-- Top link start-->
+        <a routerLink="#" class="main-nav--link main-nav--link__top">
+          <span class="link-icon mdi mdi-buffer"></span>
+        </a>
+        <!-- Top link end -->
+    
+        <!-- Nav links start -->
+        <ul class="main-nav--links">
+          <li>
+            <a routerLink="#" class="main-nav--link main-nav--link__active">
+              <span class="link-icon mdi mdi-account-multiple"></span>
+              <!-- <span class="link-help-text">HR</span> -->
+            </a>
+          </li>
+          <li>
+            <a routerLink="#" class="main-nav--link">
+              <span class="link-icon mdi mdi-timer"></span>
+              <!-- <span class="link-help-text">HR</span> -->
+            </a>
+          </li>
+          <li>
+            <a routerLink="#" class="main-nav--link">
+              <span class="link-icon mdi mdi-chart-pie"></span>
+              <!-- <span class="link-help-text">HR</span> -->
+            </a>
+          </li>
+          <li>
+            <a routerLink="#" class="main-nav--link">
+              <span class="link-icon mdi mdi-account-check"></span>
+              <!-- <span class="link-help-text">HR</span> -->
+            </a>
+          </li>
+        </ul>
+        <!-- Nav links end -->
+    
+        <!-- Bottom link start-->
+        <a routerLink="#" class="main-nav--link main-nav--link__bottom">
+          <span class="link-icon mdi mdi-settings"></span>
+        </a>
+        <!-- Bottom link end -->
+      </div>
+      <!-- Main navigation end -->
+    
+      <!-- Secondary Nav start -->
+      <div class="secondary-nav">
+    
+        <!-- Secondary nav header start -->
+        <div class="secondary-nav--header">
+          <h3 class="parent-title">Human resources</h3>
+        </div>
+        <!-- Secondary nav header end -->
+    
+        <!-- Secondary nav body start -->
+        <div class="secondary-nav--body">
+          <ul class="secondary-nav--links">
+            <li class="secondary-nav--link">
+              <a href="#">Employees</a>
+    
+              <ul class="secondary-nav--links-sub">
+                <li class="secondary-nav--link">
+                  <a href="#">Submenu item one</a>
+                </li>
+                <li class="secondary-nav--link">
+                  <a href="#">Submenu item two</a>
+                </li>
+              </ul>
+            </li>
+            <li class="secondary-nav--link">
+              <a href="#">Attendance</a>
+            </li>
+          </ul>
+        </div>
+        <!-- Secondary nav body end -->
+    
+        <!-- Secondary nav footer start -->
+        <div class="secondary-nav--footer"></div>
+        <!-- Secondary nav footer end -->
+      </div>
+      <!-- Secondary Nav end -->
+    </section>
+    <!-- Sidebar navigation end -->
+    
+    <!-- Header start -->
+    <header class="header">
+    
+      <!-- App switcher start -->
+      <div class="app-switcher">
+        <div class="dropdown">
+          <div class="dropdown-toggle" id="appSwitcher" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="app-switcher--icon addon addon-primary-active addon__letter addon__md">
+              <span class="addon--letter">L</span>
+            </div>
+            <label class="app-switcher--label">Lyceum Nugegoda</label>
+            <!-- <span class="mdi mdi-chevron-down"></span> -->
+          </div>
+    
+          <div class="dropdown-menu" aria-labelledby="appSwitcher">
+            <a class="dropdown-item" href="#">Kohuwala</a>
+            <a class="dropdown-item" href="#">Kandy</a>
+            <a class="dropdown-item" href="#">Jafna</a>
+          </div>
+        </div>
+      </div>
+      <!-- App switcher end -->
+    
+      <!-- User switcher start -->
+      <div class="user-switcher">
+        <div class="dropdown">
+          <div class="dropdown-toggle" id="userSwitcher" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <label class="user-switcher--label">Hello,
+              <span class="color-primary-active">Harshana</span>
+            </label>
+            <div class="user-switcher--icon addon addon__letter addon__md">
+              <span class="addon--letter">
+                <img src="https://d3iw72m71ie81c.cloudfront.net/male-8.jpg" alt="Kasun Harshana">
+              </span>
+            </div>
+            <!-- <span class="mdi mdi-chevron-down"></span> -->
+          </div>
+    
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Settings</a>
+            <a class="dropdown-item" href="#">Account</a>
+            <a class="dropdown-item" href="#">Logout</a>
+          </div>
+        </div>
+      </div>
+      <!-- User switcher end -->
+    </header>
+    <!-- Header end -->
+    <body class="body-container">
+      <router-outlet></router-outlet>
+    </body>

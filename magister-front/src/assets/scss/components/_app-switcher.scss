@@ -1,0 +1,64 @@
+// App switcher
+// ============
+$addon-size: 40px;
+$app-switcher-padding: 14px 0;
+
+.app-switcher {
+  display: flex;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-right: 1px solid theme-color("border");
+
+  // Icon
+  &--icon {
+    width: $addon-size;
+  }
+
+  // Label
+  &--label {
+    margin: 0;
+    padding-left: 15px;
+    font-size: $font-size-base;
+    color: $text-active;
+  }
+
+  // misc
+  .mdi {}
+
+  // Dropdown Toggle
+  .dropdown-toggle {
+    padding: $app-switcher-padding;
+    cursor: pointer;
+  }
+
+  // Dropdown Menu
+  .dropdown-menu {
+    margin-top: 0;
+    // width: 100%;
+    border: none;
+    // border-top: 3px solid $primary-active;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    box-shadow: 0 14px 30px rgba(37, 38, 94, 0.09);
+  }
+
+  // Dropdown item
+  .dropdown-item {
+    padding: 8px 20px;
+  }
+}
+
+.addon {
+  display: inline-block;
+  width: $addon-size;
+  height: $addon-size;
+  line-height: $addon-size;
+  text-align: center;
+  font-weight: $font-weight-700;
+  color: color-yiq($primary-active);
+  border-radius: 100%;
+
+  &-primary-active {
+    background-color: $primary-active;
+  }
+}

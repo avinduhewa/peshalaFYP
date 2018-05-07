@@ -1,0 +1,78 @@
+<div class="container">
+
+  <div class="row">
+    <!-- Onboarding content start -->
+    <div class="onboarding-content">
+
+      <!-- Onboarding content header start -->
+      <div class="onboarding-content--header">
+        <h3 class="page-title">Request access to the Timeplus</h3>
+        <!-- <p class="page-description">Lorem ipsum dolor sit amet, consectetur adipiscing.</p> -->
+      </div>
+      <!-- Onboarding content header end -->
+
+      <!-- Onboarding content body start -->
+      <div class="onboarding-content--body">
+
+        <!-- Form start -->
+        <form class="form login-form" novalidate [formGroup]="form" (submit)="submit(form.value)">
+
+          <div class="form-row">
+            <div class="col-md-12 mb-6">
+              <app-form-validator [form]="form" controllerPath="name" [submitAttempt]="formSubmitAttempt">
+                <label for="regfirstName">Name</label>
+                <input type="text" class="form-control" formControlName="name" id="regfirstName" placeholder="" required>
+              </app-form-validator>
+            </div>
+          </div>
+
+          <div class="form-group">
+              <app-form-validator [form]="form" controllerPath="userName" [submitAttempt]="formSubmitAttempt">
+                <label for="regUserName">Username</label>
+                <input type="text" class="form-control" formControlName="username" id="regUserName" placeholder="">
+              </app-form-validator>
+          </div>
+
+          <div class="form-group">
+            <app-form-validator [form]="form" controllerPath="phoneNumber" [submitAttempt]="formSubmitAttempt">
+              <label for="regPhoneNumber">Contact No#</label>
+              <input type="text" class="form-control" formControlName="phoneNumber" id="regPhoneNumber" placeholder="">
+            </app-form-validator>
+          </div>
+
+          <div class="form-group">
+              <app-form-validator [form]="form" controllerPath="password" [submitAttempt]="formSubmitAttempt">
+                <label for="regContactNo">Password</label>
+                <input type="password" class="form-control" formControlName="password" id="password" placeholder="">
+              </app-form-validator>
+            </div>
+
+          <div class="form-group">
+            <app-form-validator [form]="form" controllerPath="email" [submitAttempt]="formSubmitAttempt">
+
+              <label for="regEmailAddress">Email address</label>
+              <input type="text" class="form-control" formControlName="email" id="regEmailAddress" placeholder="">
+            </app-form-validator>
+          </div>
+          <button type="submit" class="btn btn-primary-active submit" id="btnReqAcc">Request an account</button>
+        </form>
+        <!-- Form end -->
+      </div>
+      <!-- Onboarding content body end -->
+
+      <!-- Onboarding content footer start -->
+      <div class="onboarding-content--footer">
+        <p class="note">Already have an account?
+          <a routerLink="/login">Signin</a>
+        </p>
+      </div>
+      <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Launch demo modal
+      </button> -->
+      <!-- Onboarding content footer end -->
+    </div>
+    <!-- Onboarding content end -->
+  </div>
+  <!-- ./row -->
+</div>
+<!-- ./container -->

@@ -1,0 +1,119 @@
+
+.onboarding-container {
+
+  // Container, row
+  .container,
+  .container > .row {
+    justify-content: center;
+    height: 100%;
+  }
+}
+
+// * Onboarding content
+.onboarding-content {
+  position: relative;
+  padding-top: 80px;
+  padding-right: 15px;
+  padding-left: 15px;
+  max-width: 470px;
+
+  @media screen and (max-width: ($mobile-md)) {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+
+  // * Header
+  &--header {
+    display: inline-block;
+    margin-bottom: 50px;
+    width: 100%;
+
+    // Page title
+    .page-title {
+      display: inline-block;
+      margin-bottom: 10px;
+      width: 100%;
+      // max-width: 340px;
+    }
+
+    // Page description
+    .page-description {
+      display: inline-block;
+      width: 100%;
+      // max-width: 340px;
+    }
+  }
+
+  // * Body
+  &--body {
+    display: inline-block;
+    margin-bottom: 60px;
+    width: 100%;
+
+    // Form
+    .form {
+      display: inline-block;
+      width: 100%;
+      // max-width: 410px;
+
+      @include media-breakpoint-down(md) {
+        max-width: 100%;
+      }
+    }
+
+    // Misc addons box
+    .misc-box {
+      display: inline-block;
+      margin-bottom: 30px;
+      width: 100%;
+    }
+
+    // Forgot password link
+    .forgot-password-link {
+      float: right;
+    }
+
+    // Remember me checkbox
+    .remember-me {
+      float: left;
+    }
+
+    // Submit button
+    .btn.submit {
+      min-width: 130px;
+
+      @media screen and (max-width: ($mobile-md)) {
+        width: 100%;
+      }
+    }
+
+    // Notifications
+    .notifications {
+      display: inline-block;
+      width: 100%;
+      // max-width: 410px;
+
+      .alert {
+        margin-bottom: 40px;
+        width: 100%;
+      }
+    }
+  }
+
+  // Footer
+  &--footer {
+    // position: absolute;
+    // right: 80px;
+    // bottom: 0;
+    // left: 15px;
+    display: inline-block;
+    padding: 30px 0;
+    width: 100%;
+    border-top: 1px solid theme-color("border");
+
+    // Note
+    .note {
+      margin: 0;
+    }
+  }
+}

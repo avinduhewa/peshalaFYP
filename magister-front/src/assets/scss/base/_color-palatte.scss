@@ -1,0 +1,31 @@
+// Zulu color palatte
+
+// Text colors
+$text-active: #25265E;
+$text-default: #787993;
+$text-secondary: #D0D0D4;
+
+// Theme primary colors
+$primary-active: #0065FF;
+$primary-default: #2F61D5;
+$primary-secondary: rgba($primary-default,0.10);
+
+// Theme secondary
+$secondary-active: #7540EE;
+$secondary-default: #A480F6;
+$secondary-secondary: rgba($secondary-default,0.10);
+
+// Theme danger
+$danger-active: #EB4335;
+$danger-default: #FF7052;
+$danger-secondary: rgba($danger-default,0.10);
+
+// Theme success
+$success-active: #2DC76D;
+$success-default: #5FCD64;
+$success-secondary: rgba($danger-default,0.10);
+
+// Theme warning
+$warning-active: #FFC800;
+$warning-default: #FBBC05;
+$warning-secondary: rgba($danger-default,0.10);

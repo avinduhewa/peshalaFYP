@@ -1,0 +1,36 @@
+
+    <form class="form" novalidate [formGroup]="form" (submit)="submit(form.value)" >
+        <div class="row">
+            <div class="col-md-9">
+                <div class="form-group">
+                    <ng-select [items]="className"
+                    bindLabel="name"
+                    bindValue="id"
+                    formControlName="className"
+                    placeholder="Board Name"
+                    >
+                    </ng-select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <input class="btn btn-primary" type="submit" name="" id="">
+            </div>
+        </div>
+    </form>
+
+    <div class="card-container">
+        <div class="row">
+            <div class="col-md-2" *ngFor="let item of className">
+                    <div class="card" style="width: 18rem;"  >
+                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+
