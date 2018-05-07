@@ -1,0 +1,49 @@
+service: ${self:custom.path}-service 
+
+plugins:
+  - serverless-offline
+  
+provider:
+  profile: ${self:custom.profile}
+  name: aws
+  stage: ${opt:stage, 'dev'}
+  runtime: nodejs6.10
+  region: ap-southeast-1
+  environment:
+    stage: ${opt:stage, 'dev'}
+    database_dev: mongodb://admin:password@ds125578.mlab.com:17350/magister
+
+custom:
+  path: magister-auth
+  profile: peshala
+
+functions:
+  signUp:
+    handler: auth/register.signUp
+    events:
+      - schedule: rate(2 minutes)
+      - http:
+          method: post
+          path: ${self:custom.path}/signUp
+          cors: true
+
+  confirmSignUp:
+    handler: auth/confirmSignUp.confirmSignUp
+    events:
+      - schedule: rate(2 minutes)
+      - http:
+          method: post
+          path: ${self:custom.path}/confirmSignUp
+          cors: true
+
+  resendVerificationCode:
+    handler: auth/resendConfirmationCode.resendConfirmationCode
+    events:
+      - schedule: rate(2 minutes)
+      - http:
+          method: post
+          path: ${self:custom.path}/resendVerificationCode
+          cors: true
+
+  customizeEmail:
+    handler: auth/customEmail.customEmail
