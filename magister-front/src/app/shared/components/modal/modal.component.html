@@ -1,0 +1,25 @@
+<!-- Application Modal window start -->
+<div class="app-modal" [ngClass]="{'app-modal--active': status }">
+
+  <!-- Modal content start -->
+  <div class="app-modal--content">
+
+    <!-- Modal header start -->
+    <div class="app-modal--header">
+      <h4 class="app-modal--title" *ngIf="title">{{title}}</h4>
+      <span class="app-modal--close mdi mdi-close" (click)="close()"></span>
+    </div>
+    <!-- Modal header end -->
+    <!-- Modal body start -->
+    <div class="app-modal--body">
+      <ng-content></ng-content>
+    </div>
+    <!-- Modal body end -->
+  </div>
+  <!-- Modal content end -->
+
+  <!-- Application modal overlay start -->
+  <div class="app-modal--overlay" (click)="close()"></div>
+  <!-- Application modal overlay end -->
+</div>
+<!-- Application Modal window end -->

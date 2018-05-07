@@ -1,0 +1,76 @@
+// User switcher
+// =============
+$addon-size: 35px;
+$user-switcher-padding: 14px 0;
+
+.user-switcher {
+  display: flex;
+  // align-self: flex-end;
+  margin-left: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-left: 1px solid theme-color("border");
+
+  // Icon
+  &--icon {
+    width: $addon-size;
+
+    img,
+    svg {
+      position: relative;
+      top: -2px;
+      width: $addon-size;
+      height: $addon-size;
+      border-radius: 100%;
+    }
+  }
+
+  // Label
+  &--label {
+    margin: 0;
+    padding-right: 15px;
+    font-size: $font-size-base;
+    color: $text-active;
+
+    span {
+      color: $primary-active;
+    }
+  }
+
+  // misc
+  .mdi {}
+
+  // Dropdown Toggle
+  .dropdown-toggle {
+    padding: $app-switcher-padding;
+    cursor: pointer;
+  }
+
+  // Dropdown Menu
+  .dropdown-menu {
+    margin-top: 0;
+    width: 100%;
+    border: none;
+    // border-top: 3px solid $primary-active;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    box-shadow: 0 14px 30px rgba(37, 38, 94, 0.09);
+  }
+
+  // Dropdown item
+  // .dropdown-item {
+  //   padding: 8px 20px;
+  // }
+}
+
+// .addon {
+//   display: inline-block;
+//   width: $addon-size;
+//   height: $addon-size;
+//   line-height: $addon-size;
+//   text-align: center;
+//   font-weight: $font-weight-700;
+//   // color: color-yiq($primary-active);
+//   background-color: $primary-active;
+//   border-radius: 100%;
+// }
