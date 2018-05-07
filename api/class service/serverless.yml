@@ -1,0 +1,88 @@
+service: ${self:custom.path}-service 
+
+plugins:
+  - serverless-offline
+  
+provider:
+  profile: ${self:custom.profile}
+  name: aws
+  stage: ${opt:stage, 'dev'}
+  runtime: nodejs6.10
+  region: ap-southeast-1
+  environment:
+    stage: ${opt:stage, 'dev'}
+    database_dev: mongodb://admin:password@ds125578.mlab.com:17350/magister
+
+custom:
+  path: magister-classs
+  profile: peshala
+  cognito:
+    dev: arn:aws:cognito-idp:ap-southeast-1:358758989123:userpool/ap-southeast-1_ag8VZCvMp
+
+functions:
+
+  createClass:
+    handler: classs/create.createClass
+    events:
+      - schedule: rate(2 minutes)
+      - http:
+          method: post
+          path: ${self:custom.path}/class
+          cors: true
+          authorizer:
+            arn: ${self:custom.cognito.dev}
+
+  getClass:
+    handler: classs/getClass.getClass
+    events:
+      - schedule: rate(2 minutes)
+      - http:
+          method: get
+          path: ${self:custom.path}/class/{classId}
+          cors: true
+          authorizer:
+            arn: ${self:custom.cognito.dev}
+
+  getAllClasss:
+    handler: classs/getAllClasss.getAllClasses
+    events:
+      - schedule: rate(2 minutes)
+      - http:
+          method: get
+          path: ${self:custom.path}/class/all/{userId}
+          cors: true
+          authorizer:
+            arn: ${self:custom.cognito.dev}
+
+  updateClass:
+    handler: classs/update.updateClass
+    events:
+      - schedule: rate(2 minutes)
+      - http:
+          method: post
+          path: ${self:custom.path}/{orgId}/class/{classId}/update
+          cors: true
+          authorizer:
+            arn: ${self:custom.cognito.dev}
+
+  deleteClass:
+    handler: classs/delete.deleteClass
+    events:
+      - schedule: rate(2 minutes)
+      - http:
+          method: delete
+          path: ${self:custom.path}/{orgId}/class/{classId}
+          cors: true
+          authorizer:
+            arn: ${self:custom.cognito.dev}
+
+  acceptClass:
+    handler: classs/acceptClass.acceptClass
+    events:
+      - schedule: rate(2 minutes)
+      - http:
+          method: post
+          path: ${self:custom.path}/class/{classId}/acceptClass
+          cors: true
+          authorizer:
+            arn: ${self:custom.cognito.dev}
