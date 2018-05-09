@@ -51,6 +51,7 @@ export class SignInComponent extends FormComponent implements OnInit {
 
   // TODO: promises promises
   cognitoCallback(message: string, result: any) {
+    console.log(message, result);
     // TODO: in js, you can check for truthy instead of if (message != null), use if(message)
     if (message != null) {
       if (message === 'User is not confirmed.') {

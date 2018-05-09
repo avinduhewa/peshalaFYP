@@ -20,8 +20,8 @@ export class UserLoginService {
   authenticate({ username, password }, callback) {
     // TODO: get these constants from environment.ts
     AWSCognito.config.update({
-      accessKeyId: 'AKIAILYRG3JD3LFV7J3Q',
-      secretAccessKey: '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'
+      accessKeyId: 'AKIAISHSIGDFRFBPJP7A',
+      secretAccessKey: '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'
     });
 
     const authenticationData = {
@@ -53,22 +53,7 @@ export class UserLoginService {
           IdentityPoolId: CognitoUtilService._IDENTITY_POOL_ID,
           Logins: logins
         });
-        // setting tokens
-        utilityService.setToken(result.idToken.jwtToken);
-        utilityService.forceSetToken();
-        // TODO: cleanup
-        // userProfile.getUser().subscribe(data => {
-        //   cognitoUtilService.getAccessToken((AccessToken) => {
-        //     const params = {
-        //       orgId: data.data.organisations.length === 0 ? undefined : data.data.organisations[0]._id,
-        //       AccessToken,
-        //       token: ''
-        //     };
-        //     cognitoUtilService.getToken(token1 => {
-        //       params.token = token1;
-        //     });
-        //   });
-        // });
+        console.log(logins);
         callback(null, result);
       },
       onFailure: function (err) {
@@ -116,7 +101,7 @@ export class UserLoginService {
     if (cognitoUser != null) {
       cognitoUser.getSession(function (err1, session) {
         if (err1) {
-          return callback(null);
+          return callback(err1);
         } else {
           cognitoUser.getUserAttributes(function (err2, result) {
             if (err2) {
