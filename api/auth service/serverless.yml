@@ -11,7 +11,7 @@ provider:
   region: ap-southeast-1
   environment:
     stage: ${opt:stage, 'dev'}
-    database_dev: mongodb://admin:password@ds125578.mlab.com:17350/magister
+    database_dev: mongodb://admin:password@ds217350.mlab.com:17350/magister
 
 custom:
   path: magister-auth

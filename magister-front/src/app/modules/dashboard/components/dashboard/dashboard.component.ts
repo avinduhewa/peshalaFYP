@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { debug } from 'util';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { MakeDashboardGetCall } from '../../services/makeDashboardGetCall.service'
+import { UserLoginService } from '../../../login/services/cognito/user-login';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,14 +14,15 @@ import { MakeDashboardGetCall } from '../../services/makeDashboardGetCall.servic
 })
 export class DashboardComponent extends FormComponent implements OnInit {
 
-  public className = ['apple','orange','pears'];
-  
+  public className = ['apple', 'orange', 'pears'];
+
 
   constructor(
     private fb: FormBuilder,
     private confirmationForm: FormBuilder,
     private router: Router,
-    private makeCalls : MakeDashboardGetCall,
+    private makeCalls: MakeDashboardGetCall,
+    private userLoginService: UserLoginService
   ) {
     super();
     this.formSubmitAttempt = false;
@@ -28,11 +30,17 @@ export class DashboardComponent extends FormComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.userLoginService.isAuthenticated((err, res) => {
+      console.log('qweqwe', err, res);
+      if (res === false) {
+        this.router.navigate(['/login']);
+      }
+    })
     const orgID = '5ad60807c4a8148f3257995c';
     this.makeCalls.getAllProjects(orgID).subscribe(res => {
       console.log(res)
     });
-    
+
   }
 
   submit() {

@@ -31,7 +31,7 @@ module.exports.signUp = (event, context, callback) => {
             Value: data.name
           },
           {
-            Name: 'type',
+            Name: 'custom:type',
             Value: data.type
           },
           {

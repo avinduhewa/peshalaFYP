@@ -11,10 +11,10 @@ provider:
   region: ap-southeast-1
   environment:
     stage: ${opt:stage, 'dev'}
-    database_dev: mongodb://admin:password@ds125578.mlab.com:17350/magister
+    database_dev: mongodb://admin:password@ds217350.mlab.com:17350/magister
 
 custom:
-  path: magister-classs
+  path: magister-classes
   profile: peshala
   cognito:
     dev: arn:aws:cognito-idp:ap-southeast-1:358758989123:userpool/ap-southeast-1_ag8VZCvMp
@@ -22,7 +22,7 @@ custom:
 functions:
 
   createClass:
-    handler: classs/create.createClass
+    handler: classes/create.createClass
     events:
       - schedule: rate(2 minutes)
       - http:
@@ -33,7 +33,7 @@ functions:
             arn: ${self:custom.cognito.dev}
 
   getClass:
-    handler: classs/getClass.getClass
+    handler: classes/getClass.getClass
     events:
       - schedule: rate(2 minutes)
       - http:
@@ -44,7 +44,7 @@ functions:
             arn: ${self:custom.cognito.dev}
 
   getAllClasss:
-    handler: classs/getAllClasss.getAllClasses
+    handler: classes/getAllClasss.getAllClasses
     events:
       - schedule: rate(2 minutes)
       - http:
@@ -55,7 +55,7 @@ functions:
             arn: ${self:custom.cognito.dev}
 
   updateClass:
-    handler: classs/update.updateClass
+    handler: classes/update.updateClass
     events:
       - schedule: rate(2 minutes)
       - http:
@@ -66,7 +66,7 @@ functions:
             arn: ${self:custom.cognito.dev}
 
   deleteClass:
-    handler: classs/delete.deleteClass
+    handler: classes/delete.deleteClass
     events:
       - schedule: rate(2 minutes)
       - http:
@@ -77,7 +77,7 @@ functions:
             arn: ${self:custom.cognito.dev}
 
   acceptClass:
-    handler: classs/acceptClass.acceptClass
+    handler: classes/acceptClass.acceptClass
     events:
       - schedule: rate(2 minutes)
       - http:

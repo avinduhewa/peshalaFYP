@@ -10,9 +10,9 @@ export class CognitoUtilService {
   // TODO: all of these move to environment.ts
   public static _REGION = 'ap-southeast-1';
   // Following keys are where it's customized with cognito identities
-  public static _IDENTITY_POOL_ID = 'ap-southeast-1:801d99bc-e28b-4928-8b48-68b094f574bf';
-  public static _USER_POOL_ID = 'ap-southeast-1_32vOfpIOk';
-  public static _CLIENT_ID = '3fqi6045p77poi5d7kpp0sucbn';
+  public static _IDENTITY_POOL_ID = 'ap-southeast-1:e52de494-1aea-4ff8-b9f2-316d045500cc';
+  public static _USER_POOL_ID = 'ap-southeast-1_ag8VZCvMp';
+  public static _CLIENT_ID = '35r00v4rrdpnm8v8dcrek370bs';
 
   public static _POOL_DATA = {
     UserPoolId: CognitoUtilService._USER_POOL_ID,

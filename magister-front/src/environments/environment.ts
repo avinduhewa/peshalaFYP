@@ -5,7 +5,9 @@
 
 export const environment = {
   production: false,
-  usersUrl: 'https://dsrojjj7ca.execute-api.ap-southeast-1.amazonaws.com/dev/timeplus-users',
+  authUrl: 'https://x223lb80o8.execute-api.ap-southeast-1.amazonaws.com/dev/magister-auth',
+  usersUrl: 'https://kx2drhnmc9.execute-api.ap-southeast-1.amazonaws.com/dev/magister-users',
+  classesUrl: 'https://ilh5jw6g6g.execute-api.ap-southeast-1.amazonaws.com/dev/magister-classes',
   projectUrl: 'https://7wk102pmi5.execute-api.ap-southeast-1.amazonaws.com/dev/timeplus-projects',
   taskUrl: ' https://ikgv9sr4el.execute-api.ap-southeast-1.amazonaws.com/dev/timeplus-tasks',
 };
