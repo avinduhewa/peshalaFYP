@@ -59,11 +59,9 @@ export class SignInComponent extends FormComponent implements OnInit {
         console.log('user not there')
       }
       else {
-        this.router.navigate(['/dashboard']);
+       
       }
-    }
-    else {
-
+      this.router.navigate(['/dashboard']);
     }
   }
 

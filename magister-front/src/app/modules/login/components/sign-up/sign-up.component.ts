@@ -25,7 +25,9 @@ export class SignUpComponent extends FormComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.signupService.fuck().subscribe(data => {
+      console.log(data);
+    })
   }
 
   initForm() {
@@ -35,6 +37,7 @@ export class SignUpComponent extends FormComponent implements OnInit {
       email: [null, [Validators.required, Validators.email]],
       username: [null, [Validators.required]],
       password: [null, [Validators.required]],  // TODO: write regex for password for capital Letter, Number and Special char
+      type: [null, [Validators.required]],  // TODO: write regex for password for capital Letter, Number and Special char
     });
   }
 
@@ -53,8 +56,11 @@ export class SignUpComponent extends FormComponent implements OnInit {
       const formValue = this.form.value; // TODO:'formValue' is never reassigned; use 'const' instead of 'let'
       // TODO: wrtie interface for formValue
       // TODO: always use semi colons as a coding standard
+      console.log(this.form.value);
+      
       this.signupService.signUp(formValue).subscribe(res => {
-        // TODO: handle error or success
+        console.log(res);
+        
       });
     }
   }

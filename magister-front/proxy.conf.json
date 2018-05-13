@@ -1,0 +1,12 @@
+{
+    "/magister-auth/*": {
+      "target": "https://x223lb80o8.execute-api.ap-southeast-1.amazonaws.com/dev",
+      "secure": false,
+      "changeOrigin": true
+    },
+    "/magister-users/*": {
+        "target": "https://kx2drhnmc9.execute-api.ap-southeast-1.amazonaws.com/dev",
+        "secure": false,
+        "changeOrigin": true
+      }
+  }

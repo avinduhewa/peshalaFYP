@@ -31,9 +31,9 @@ export class DashboardComponent extends FormComponent implements OnInit {
 
   ngOnInit() {
     this.userLoginService.isAuthenticated((err, res) => {
-      console.log('qweqwe', err, res);
       if (res === false) {
-        this.router.navigate(['/login']);
+        console.log(res);
+        // this.router.navigate(['/login']);
       }
     })
     const orgID = '5ad60807c4a8148f3257995c';

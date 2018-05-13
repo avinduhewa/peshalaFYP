@@ -77,21 +77,21 @@ export class UserLoginService {
   // checking if user is authenticated
   // TODO: Promises is the way to go forward
   isAuthenticated(callback) {
-
-    const cognitoUser = this.cognitoUtilService.getCurrentUser();
-
-    if (cognitoUser != null) {
-      cognitoUser.getSession(function (err, session) {
-        if (err) {
-          callback(err, false);
+    
+        const cognitoUser = this.cognitoUtilService.getCurrentUser();
+    
+        if (cognitoUser != null) {
+          cognitoUser.getSession(function (err, session) {
+            if (err) {
+              callback(err, false);
+            } else {
+              callback(err, session.isValid());
+            }
+          });
         } else {
-          callback(err, session.isValid());
+          callback('Can\'t retrieve the CurrentUser', false);
         }
-      });
-    } else {
-      callback('Can\'t retrieve the CurrentUser', false);
-    }
-  }
+      }
 
   // get the user params
   // TODO: promises promises

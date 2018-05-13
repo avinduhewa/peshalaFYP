@@ -25,4 +25,6 @@ import { DashboardRoutes } from './dashboard.routing';
 
   ]
 })
-export class DashboardModule { }
+export class DashboardModule { 
+
+}

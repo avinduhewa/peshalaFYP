@@ -20,6 +20,7 @@ import { UtilityService } from './services/api/utility.service';
 import { MakeUserGetCalls } from './services/makeUserGetCalls';
 import { MakeUserPostCalls } from './services/makeUserPostCalls';
 import { DashoardComponent } from './dashoard/dashoard.component';
+import { UserConfirmationComponent } from './components/user-confirmation/user-confirmation.component';
 
 @NgModule({
     declarations: [
@@ -29,7 +30,8 @@ import { DashoardComponent } from './dashoard/dashoard.component';
         FeatureSliderComponent,
         ChangePasswordComponent,
         LoginLayoutComponent,
-        DashoardComponent
+        DashoardComponent,
+        UserConfirmationComponent
     ],
     imports: [
         NgSelectModule,
