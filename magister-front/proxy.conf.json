@@ -8,5 +8,10 @@
         "target": "https://kx2drhnmc9.execute-api.ap-southeast-1.amazonaws.com/dev",
         "secure": false,
         "changeOrigin": true
+      },
+      "/magister-classes/*": {
+        "target": "https://fha0iqpcmd.execute-api.ap-southeast-1.amazonaws.com/dev",
+        "secure": false,
+        "changeOrigin": true
       }
   }

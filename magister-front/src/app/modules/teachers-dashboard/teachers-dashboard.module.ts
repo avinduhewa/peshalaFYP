@@ -7,6 +7,11 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { DashboardTeacherRoutingModule } from './teachersDashboard.routing';
 
 import { TeachersDashboardComponent } from './components/teachers-dashboard/teachers-dashboard.component';
+import { CreateClassComponent } from './components/create-class/create-class.component';
+
+import { MakeDashboardGetCall } from './services/make-class-get-calls.service';
+import { MakeDashboardPostCall } from './services/make-class-post-calls.service';
+import { ClassInfoComponent } from './components/class-info/class-info.component';
 
 
 @NgModule({
@@ -21,9 +26,12 @@ import { TeachersDashboardComponent } from './components/teachers-dashboard/teac
   ],
   declarations: [
     TeachersDashboardComponent,
+    CreateClassComponent,
+    ClassInfoComponent,
   ],
   providers: [
-
+    MakeDashboardGetCall,
+    MakeDashboardPostCall
   ]
 })
 export class TeacherDashboardModule { }

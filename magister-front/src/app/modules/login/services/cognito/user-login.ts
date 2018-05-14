@@ -107,7 +107,32 @@ export class UserLoginService {
             if (err2) {
               // console.log('UserParametersService: in getParameters: ' + err);
             } else {
-              return callback(result);
+              const params = {
+                name: '',
+                email: '',
+                type: '',
+                userId: ''
+               }
+               result.map(e=> {
+                 switch (e.Name) {
+                   case 'custom:userId':
+                     params.userId = e.Value;
+                     break;
+                  case 'name':
+                     params.name = e.Value;
+                     break; 
+                  case 'email':
+                     params.email = e.Value;
+                     break; 
+                  case 'custom:type':
+                     params.type = e.Value;
+                     break; 
+                 
+                   default:
+                     break;
+                 }
+               })
+              return callback(params);
             }
           });
         }

@@ -6,6 +6,7 @@ import { debug } from 'util';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { MakeDashboardGetCall } from '../../services/makeDashboardGetCall.service'
 import { UserLoginService } from '../../../login/services/cognito/user-login';
+import { CognitoUtilService } from '../../../login/services/cognito/cognito-util'
 
 @Component({
   selector: 'app-dashboard-layout',
@@ -15,9 +16,13 @@ import { UserLoginService } from '../../../login/services/cognito/user-login';
 })
 export class DashboardLayoutComponent implements OnInit {
 
+  public userName : any;
+
+
   constructor(
    private userLoginService : UserLoginService,
    private router : Router,
+   private  cognitoUtilService :CognitoUtilService,
   ) { }
 
   ngOnInit() {
@@ -26,12 +31,28 @@ export class DashboardLayoutComponent implements OnInit {
         this.router.navigate(['/login']);
       }
     })
+    this.userLoginService.getParameters((res)=>{
+      switch (res.type) {
+        case 'teacher':
+            this.router.navigate(['/teacherdashboard']);
+          break;
+        case 'student':
+            this.userName = res.name
+          break;
+      
+        default:
+          break;
+      }
+
+      
+      
+    })
+
   }
 
   logout() {
-    console.log('test');
-    
     this.userLoginService.logout()
+    this.router.navigate(['/login']);
   }
 
 }

@@ -7,6 +7,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DashboardRoutes } from './dashboard.routing';
+import { MakeDashboardPostCall } from './services/makeDashboardPostCall.service';
 
 @NgModule({
   imports: [
@@ -22,7 +23,7 @@ import { DashboardRoutes } from './dashboard.routing';
     DashboardComponent,
   ],
   providers: [
-
+    MakeDashboardPostCall
   ]
 })
 export class DashboardModule { 

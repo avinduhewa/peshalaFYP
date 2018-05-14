@@ -52,6 +52,8 @@ export class SignInComponent extends FormComponent implements OnInit {
   // TODO: promises promises
   cognitoCallback(message: string, result: any) {
     console.log(message, result);
+    console.log(message);
+    
     // TODO: in js, you can check for truthy instead of if (message != null), use if(message)
     if (message != null) {
       if (message === 'User is not confirmed.') {
@@ -59,8 +61,10 @@ export class SignInComponent extends FormComponent implements OnInit {
         console.log('user not there')
       }
       else {
-       
+
       }
+    }
+    else { 
       this.router.navigate(['/dashboard']);
     }
   }

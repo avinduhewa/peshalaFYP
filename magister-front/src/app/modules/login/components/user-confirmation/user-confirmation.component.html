@@ -1,3 +1,54 @@
-<p>
-  user-confirmation works!
-</p>
+<div class="container">
+  
+    <div class="row">
+      <!-- Onboarding content start -->
+      <div class="onboarding-content">
+  
+        <!-- Onboarding content header start -->
+        <div class="onboarding-content--header">
+          <h3 class="page-title">Please check your email and Get the verification code</h3>
+  
+        </div>
+        <!-- Onboarding content header end -->
+  
+        <!-- Onboarding content body start -->
+        <div class="onboarding-content--body">
+  
+          <!-- Notifications start -->
+          <div class="notifications" *ngIf="errorMsg">
+            <div class="alert alert-danger-active alert-dismissible fade show" role="alert">
+              <span class="alert-icon">
+                <img src="assets/icons/warning-alt.svg">
+              </span>
+              <span class="alert-text">{{errorMsg}}</span>
+              <button type="button" class="close" (click)="dissmissError()" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+          <!-- Notifications end -->
+  
+          <!-- Form start -->
+          <form class="form login-form" [formGroup]="form" novalidate (submit)="submit()">
+            <div class="form-group">
+              <app-form-validator [form]="form" controllerPath="username" [submitAttempt]="formSubmitAttempt">
+                <label for="username">User Name</label>
+                <input type="text" class="form-control" formControlName="username" id="username" placeholder="">
+              </app-form-validator>
+            </div>
+            <div class="form-group">
+              <app-form-validator [form]="form" controllerPath="username" [submitAttempt]="formSubmitAttempt">
+                <label for="confirmCode">Confirm code</label>
+                <input type="text" class="form-control" formControlName="confirmationCode" id="confirmCode" placeholder="">
+              </app-form-validator>
+            </div>
+            <button type="submit" class="btn btn-primary-active submit">Verify</button>
+          </form>
+          <!-- Form end -->
+        </div>
+      </div>
+      <!-- Onboarding content end -->
+    </div>
+    <!-- ./row -->
+  </div>
+  <!-- ./container -->

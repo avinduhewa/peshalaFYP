@@ -4,7 +4,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { debug } from 'util';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { MakeDashboardGetCall } from '../../services/makeDashboardGetCall.service'
+import { MakeDashboardGetCall } from '../../services/makeDashboardGetCall.service';
+import { CognitoUtilService } from '../../../login/services/cognito/cognito-util'
 import { UserLoginService } from '../../../login/services/cognito/user-login';
 
 @Component({
@@ -14,7 +15,12 @@ import { UserLoginService } from '../../../login/services/cognito/user-login';
 })
 export class DashboardComponent extends FormComponent implements OnInit {
 
-  public className = ['apple', 'orange', 'pears'];
+  public classNamex = [];
+  public user : any;
+  public classInfo : any;
+
+  myClasses =[];
+  classes =[];
 
 
   constructor(
@@ -22,7 +28,8 @@ export class DashboardComponent extends FormComponent implements OnInit {
     private confirmationForm: FormBuilder,
     private router: Router,
     private makeCalls: MakeDashboardGetCall,
-    private userLoginService: UserLoginService
+    private userLoginService: UserLoginService,
+    private cognitoUtilService : CognitoUtilService,
   ) {
     super();
     this.formSubmitAttempt = false;
@@ -30,33 +37,75 @@ export class DashboardComponent extends FormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userLoginService.isAuthenticated((err, res) => {
-      if (res === false) {
-        console.log(res);
-        // this.router.navigate(['/login']);
-      }
-    })
-    const orgID = '5ad60807c4a8148f3257995c';
-    this.makeCalls.getAllProjects(orgID).subscribe(res => {
-      console.log(res)
-    });
+    // this.userLoginService.isAuthenticated((err, res) => {
+    //   console.log(res);
+      
+    //   if (res === false) {
+    //     this.router.navigate(['/login']);
+    //   }
+    // })
+    this.userLoginService.getParameters((res)=>{
+      console.log(res.userId);
+      
+      this.makeCalls.getClasses().subscribe( async (res) =>{
+        console.log(res.classes);
+        this.classInfo = res.classes
+        for (let value of res.classes){
+          
+          this.classNamex.push({'id': value._id, 'name': value.name});
+        }
 
+        await this.filterClasses(res.classes);
+        console.log('!!', this.classes)
+        console.log('==', this.myClasses)
+        console.log(this.classNamex);
+
+        
+      })
+    })
   }
 
   submit() {
     super.submit();
     if (this.form.valid) {
-      const formValue = this.form.value; // TODO:'formValue' is never reassigned; use 'const' instead of 'let'
-      // TODO: wrtie interface for formValue
-      // TODO: always use semi colons as a coding standard
+      const formValue = this.form.value; 
       console.log(formValue)
     }
   }
 
   initForm() {
     this.form = this.fb.group({
-      className: [null], // TODO: allow only letters and spaces
+      className: [''], // TODO: allow only letters and spaces
     });
   }
 
+  goToClass(classItem) {
+    this.router.navigate(['/teachers'], { queryParams: { 
+      id : classItem._id,
+      name : classItem.name,
+      time : classItem.time,
+      type : classItem.type,
+      description : classItem.description,
+      date : classItem.date,
+      monthlyFee : classItem.monthlyFee
+      
+    } });
+  }
+
+  filterClasses(classes) {
+    this.userLoginService.getParameters((cognitoUser) => {
+      const userId = cognitoUser.userId;
+
+      classes.map(e=> {
+        console.log('cond',e.members.indexOf(userId) > -1,e.members, userId)
+        if (e.members.indexOf(userId) > -1) {
+          this.myClasses.push(e);
+        } else {
+          this.classes.push(e);
+        }
+      })
+    })    
+  }
+
 }
+

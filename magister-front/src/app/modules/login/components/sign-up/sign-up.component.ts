@@ -25,9 +25,7 @@ export class SignUpComponent extends FormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.signupService.fuck().subscribe(data => {
-      console.log(data);
-    })
+
   }
 
   initForm() {
@@ -53,14 +51,14 @@ export class SignUpComponent extends FormComponent implements OnInit {
   submit() {
     super.submit();
     if (this.form.valid) {
-      const formValue = this.form.value; // TODO:'formValue' is never reassigned; use 'const' instead of 'let'
-      // TODO: wrtie interface for formValue
-      // TODO: always use semi colons as a coding standard
+      const formValue = this.form.value; 
       console.log(this.form.value);
-      
       this.signupService.signUp(formValue).subscribe(res => {
-        console.log(res);
-        
+        console.log(res.name);
+        this.router.navigate(['/userConfirmation'], { queryParams: { 
+          name: res.name,
+          userID : res.userId,
+        } });
       });
     }
   }

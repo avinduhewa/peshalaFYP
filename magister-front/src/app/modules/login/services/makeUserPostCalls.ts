@@ -16,15 +16,15 @@ export class MakeUserPostCalls {
 
   signUp(request): Observable<any> {
       return this.http.post(`/magister-auth/signUp`,request)
-    }
+  }
+
+  confirmationCode(request): Observable<any> {
+    return this.http.post(`/magister-auth/confirmSignUp`,request)
+  } 
 
   accountConf(request): Observable<any> {
     return this.http.post(`${environment.usersUrl}/confirmSignUp`,request);
   } 
-
-  fuck(): Observable<any>{
-    return this.http.get('/magister-users/5af046caf309ed3b0200dcfd');
-  }
 }
 
 

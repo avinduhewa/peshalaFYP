@@ -3,6 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { TeachersLayoutComponent } from './components/teachers-layout/teachers-layout.component';
 import { TeachersDashboardComponent } from './components/teachers-dashboard/teachers-dashboard.component';
+import { CreateClassComponent } from './components/create-class/create-class.component';
+import { ClassInfoComponent } from './components/class-info/class-info.component';
+
 
 
 const DASHBOARD_ROUTES: Routes = [
@@ -18,6 +21,14 @@ const DASHBOARD_ROUTES: Routes = [
         {
           path: 'teacherdashboard',
           component: TeachersDashboardComponent
+        },
+        {
+          path: 'createClass',
+          component: CreateClassComponent
+        },
+        {
+          path: 'classInfo',
+          component: ClassInfoComponent
         },
     ]
   }

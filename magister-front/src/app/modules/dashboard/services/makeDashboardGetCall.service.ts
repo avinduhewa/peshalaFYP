@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient , HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
 import { Observable } from 'rxjs/Observable';
+import { CognitoUtilService } from '../../login/services/cognito/cognito-util';
 import 'rxjs/add/operator/map';
 
 
@@ -10,31 +11,22 @@ import 'rxjs/add/operator/map';
 export class MakeDashboardGetCall {
 
     memberRequest: any; // TODO: better write proper interfaces for these
+    public token;
 
-    constructor(private http: HttpClient) { }
+    constructor(
+        private http: HttpClient,
+        private cognitoUtilService : CognitoUtilService
+    ) {
+        this.cognitoUtilService.getToken((token) => {
+            console.log(token);
+            this.token = token;
+        });
+     }
 
-    // get all projects
-    getAllProjects(request){
-        return this.http.get(`${environment.taskUrl}/project/all`,request)
-        .map(allTimeSheet => this.memberRequest = allTimeSheet);
-    }
-
-    //get project 
-    getProject(request){
-        return this.http.get(`${environment.projectUrl}/project`,request)
-        .map(allTimeSheet => this.memberRequest = allTimeSheet);
-    }
-
-    //get task
-    getTask(request){
-        return this.http.get(`${environment.projectUrl}/task`,request)
-        .map(allTimeSheet => this.memberRequest = allTimeSheet);
-    }
-
-    //get all task
-    getAllTask(request){
-        return this.http.get(`${environment.projectUrl}/task/all`,request)
-        .map(allTimeSheet => this.memberRequest = allTimeSheet);
+    getClasses(): Observable<any>{
+        return this.http.get(`magister-classes/class/all/`, {
+            headers: new HttpHeaders().set('Authorization', this.token).set('Content-Type', 'application/json')
+        })
     }
 }
 

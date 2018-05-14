@@ -1,3 +1,21 @@
-<p>
-  teachers-dashboard works!
-</p>
+<div class="container createClass">
+  <a (click)="createClass()" class="btn">Create Class</a>
+</div>
+  
+<div class="card-container">
+    <div class="row">
+        <div class="col-md-3" *ngFor="let item of classes">
+                <div class="card" style="width: 18rem;"  >
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{item.name}}</h5>
+                        <p class="card-text">{{item.date}}</p>
+                        <p class="card-text">{{item.time}}Hrs</p>
+                        <a (click)="goToClass(item)" class="btn btn-primary">Check class</a>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+

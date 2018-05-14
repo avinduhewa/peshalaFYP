@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-9">
                 <div class="form-group">
-                    <ng-select [items]="className"
+                    <ng-select [items]="classNamex"
                     bindLabel="name"
                     bindValue="id"
                     formControlName="className"
@@ -17,16 +17,32 @@
             </div>
         </div>
     </form>
-
     <div class="card-container">
         <div class="row">
-            <div class="col-md-3" *ngFor="let item of className">
+            <div class="col-md-3" *ngFor="let item of myClasses">
                     <div class="card" style="width: 18rem;"  >
                         <img class="card-img-top" src="..." alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Check class</a>
+                            <h5 class="card-title">{{item.name}}</h5>
+                            <p class="card-text">{{item.date}}</p>
+                            <p class="card-text">{{item.time}}Hrs</p>
+                            <a (click)="goToClass(item)" class="btn btn-primary">Check class</a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <hr>
+    <div class="card-container">
+        <div class="row">
+            <div class="col-md-3" *ngFor="let item of classes">
+                    <div class="card" style="width: 18rem;"  >
+                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{item.name}}</h5>
+                            <p class="card-text">{{item.date}}</p>
+                            <p class="card-text">{{item.time}}Hrs</p>
+                            <a (click)="goToClass(item)" class="btn btn-primary">Check class</a>
                         </div>
                     </div>
                 </div>

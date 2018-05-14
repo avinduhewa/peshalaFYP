@@ -1,0 +1,102 @@
+<div class="card">
+  <div class="card-body">
+<div class="container">
+  
+    <div class="row">
+      <!-- Onboarding content start -->
+      <div class="onboarding-content">
+  
+        <!-- Onboarding content header start -->
+        <div class="onboarding-content--header">
+          <h3 class="page-title">Create a class</h3>
+          <!-- <p class="page-description">Lorem ipsum dolor sit amet, consectetur adipiscing.</p> -->
+        </div>
+        <!-- Onboarding content header end -->
+  
+        <!-- Onboarding content body start -->
+        <div class="onboarding-content--body">
+  
+          <!-- Form start -->
+          <div class="row">
+            <div class="col-md-11">
+              <form class="form login-form" novalidate [formGroup]="form" (submit)="submit(form.value)">
+      
+
+                <div class="form-group">
+                    <app-form-validator [form]="form" controllerPath="name" [submitAttempt]="formSubmitAttempt">
+                      <label for="className">Class Name</label>
+                      <input type="text" class="form-control" formControlName="name" id="className" placeholder="" required>
+                    </app-form-validator>
+                </div>
+                
+      
+                <div class="form-group">
+                    <app-form-validator [form]="form" controllerPath="userName" [submitAttempt]="formSubmitAttempt">
+                      <label for="classDescription">Class Description</label>
+                      <textarea type="textarea" class="form-control" formControlName="description" id="classDescription" placeholder=""></textarea>
+                    </app-form-validator>
+                </div>
+      
+                <div class="form-group">
+                  <app-form-validator [form]="form" controllerPath="phoneNumber" [submitAttempt]="formSubmitAttempt">
+                    <ng-select [items]="weekDays"
+                    bindLabel="Date"
+                    bindValue="id"
+                    formControlName="date"
+                    placeholder="Class Date"
+                    >
+                    </ng-select>
+                  </app-form-validator>
+                </div>
+      
+                <div class="form-group">
+                    <app-form-validator [form]="form" controllerPath="classTime" [submitAttempt]="formSubmitAttempt">
+                      <label for="classTime">Class Time</label>
+                      <input type="number" class="form-control" formControlName="time" id="classTime" placeholder="">
+                    </app-form-validator>
+                  </div>
+      
+                <div class="form-group">
+                  <app-form-validator [form]="form" controllerPath="classHours" [submitAttempt]="formSubmitAttempt">
+      
+                    <label for="classHours">Class Hours</label>
+                    <input type="number" class="form-control" formControlName="hours" id="classHours" placeholder="">
+                  </app-form-validator>
+                </div>
+                <div class="form-group">
+                  <app-form-validator [form]="form" controllerPath="classType" [submitAttempt]="formSubmitAttempt">
+                    <ng-select [items]="classTypes"
+                    bindLabel="type"
+                    bindValue="id"
+                    formControlName="type"
+                    placeholder="Class type"
+                    ></ng-select>
+                  </app-form-validator>
+                </div>
+                <div class="form-group">
+                  <app-form-validator [form]="form" controllerPath="monthlyFee" [submitAttempt]="formSubmitAttempt">
+      
+                    <label for="monthlyFee">Monthly Fee</label>
+                    <input type="text" class="form-control" formControlName="monthlyFee" id="monthlyFee" placeholder="">
+                  </app-form-validator>
+                </div>
+                <button type="submit" class="btn btn-primary-active submit" id="btnReqAcc">Create Class</button>
+
+              </form>
+            </div>
+            <div class="col-md-1">
+             
+            </div>
+          </div>
+          <!-- Form end -->
+        </div>
+        <!-- Onboarding content footer end -->
+      </div>
+      <!-- Onboarding content end -->
+    </div>
+    <!-- ./row -->
+  </div>
+  <!-- ./container -->
+  </div>
+  </div>
+  

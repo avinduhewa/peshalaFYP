@@ -1,44 +1,31 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { CognitoUtilService } from '../../login/services/cognito/cognito-util';
 
 @Injectable()
 export class MakeDashboardPostCall {
 
   memberLoginRequest: any; // TODO: remove if unused
   messages: any; // TODO: remove if unused
+  public token;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private cognitoUtilService : CognitoUtilService
+) {
+    this.cognitoUtilService.getToken((token) => {
+        this.token = token;
+    });
+ }
 
-  // create project 
-  createProject(request): Observable<any> {
-    return this.http.post(`${environment.projectUrl}/project`, request);
+  joinClass(classId): Observable<any> {
+      
+      return this.http.post(`magister-classes/class/${classId}/acceptClass`,{}, {
+        headers: new HttpHeaders().set('Authorization', this.token).set('Content-Type', 'application/json')
+    })
   }
-
-  // add mamber 
-  addMember(request): Observable<any> {
-    // return this.http.post(`${environment.projectUrl}/project`,request,`/addMembers`);
-    return this.http.post(`${environment.projectUrl}/project`,request);
-  }
-
-  // update project 
-  updateProject(request): Observable<any> {
-    return this.http.post(`${environment.projectUrl}/project`,request);
-    // return this.http.post(`${environment.projectUrl}/project`,request,`/update`);
-  }
-
-  // create task
-  createTask(request): Observable<any> {
-    return this.http.post(`${environment.taskUrl}/task`,request);
-  }
-
-  // update task
-  updateTask(request): Observable<any> {
-    return this.http.post(`${environment.taskUrl}/task`,request);
-    // return this.http.post(`${environment.taskUrl}/task`,request,`update`);
-  }
-
 }
